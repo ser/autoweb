@@ -7,8 +7,14 @@ environment:
   GOARCH: amd64
 
 steps:
+
+- name: submodules
+  image: alpine/git
+  commands:
+  - git submodule update --init --recursive
+
 - name: build
   image: ghcr.io/hugomods/hugo:latest
   commands:
   - cd website
-  - hugo --minify --gc --enableGitInfo --debug
+  - hugo --minify --gc --enableGitInfo --logLevel debug
