@@ -10,4 +10,5 @@ steps:
 - name: build
   image: ghcr.io/hugomods/hugo:latest
   commands:
-  - hugo mod help
+  - cd website
+  - hugo --minify --gc --enableGitInfo --debug
