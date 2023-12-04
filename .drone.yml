@@ -1,0 +1,13 @@
+kind: pipeline
+type: docker
+name: default
+
+environment:
+  GOOS: linux
+  GOARCH: amd64
+
+steps:
+- name: build
+  image: ghcr.io/hugomods/hugo:latest
+  commands:
+  - hugo mod help
